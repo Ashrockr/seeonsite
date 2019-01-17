@@ -62,5 +62,10 @@ public class User {
 	public void setHomePosted(Set<Home> homePosted) {
 		this.homePosted = homePosted;
 	}
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", userName=" + userName + ", email="
+				+ email + "]";
+	}
 
 }

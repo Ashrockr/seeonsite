@@ -34,6 +34,7 @@ public class SeeonsiteApplication {
 	public void createUser() {
 		System.out.println("created");
 		userRepository.save(user);
+		System.out.println(userRepository.findByUserName(user.getUserName()));
 	}
 
 }

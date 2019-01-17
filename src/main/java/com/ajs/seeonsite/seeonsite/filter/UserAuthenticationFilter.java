@@ -11,6 +11,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
@@ -38,20 +39,29 @@ public class UserAuthenticationFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
+		HttpServletResponse res = (HttpServletResponse) response;
 		LOG.info("URL : " + req.getServletPath());
 		if (shouldNotFilter(req)) {
 			LOG.info("Authentication skipped");
+			User user = (User) req.getSession().getAttribute("user");
+			if (user != null) {
+				LOG.info(user.toString());
+			}
 			chain.doFilter(request, response);
 		} else {
 			LOG.info("Authenticating");
 			User user = (User) req.getSession().getAttribute("user");
 			if (user == null) {
 				LOG.info("Authentication failed");
+				res.sendRedirect("/");
 			} else {
 				Optional<User> exisitingUser = userRepository
 						.findById(user.getUserId());
 				if (!exisitingUser.isPresent()) {
 					LOG.info("Authentication failed");
+					res.sendRedirect("/");
+				} else {
+					chain.doFilter(request, response);
 				}
 			}
 		}
