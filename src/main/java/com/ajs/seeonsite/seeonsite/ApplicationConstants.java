@@ -11,6 +11,6 @@ public interface ApplicationConstants {
 	public static String APP_URL = "http://localhost:8080";
 
 	public static List<String> EXCLUDED_URL_PATTERN = Arrays.asList("/",
-			"/register", "/contact", "/favicon.ico");
+			"/register", "/contact", "/favicon.ico", "/login");
 
 }
