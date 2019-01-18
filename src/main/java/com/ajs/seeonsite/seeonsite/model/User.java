@@ -19,6 +19,7 @@ public class User {
 	private String password;
 	private String email;
 	private String phoneNumber;
+	private Boolean isAdmin = Boolean.FALSE;
 
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
 	private Set<Home> homePosted;
@@ -80,6 +81,19 @@ public class User {
 	 */
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+	/**
+	 * @return the isAdmin
+	 */
+	public Boolean getIsAdmin() {
+		return isAdmin;
+	}
+	/**
+	 * @param isAdmin
+	 *            the isAdmin to set
+	 */
+	public void setIsAdmin(Boolean isAdmin) {
+		this.isAdmin = isAdmin;
 	}
 
 }

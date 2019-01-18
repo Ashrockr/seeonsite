@@ -27,6 +27,7 @@ public class SeeonsiteApplication {
 		user.setEmail("asd@asd");
 		user.setPassword("123asd");
 		user.setUserName("asd");
+		user.setIsAdmin(Boolean.TRUE);
 		return user;
 	}
 

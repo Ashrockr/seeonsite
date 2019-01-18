@@ -13,8 +13,8 @@
 		<form:input type="email" id="inputEmail" class="form-control"
 			placeholder="Email address" path="email" required="true" />
 		<label for="inputPhoneNumber" class="sr-only">Phone Number</label>
-		<form:input type="number" id="inputPhoneNumber" class="form-control"
-			placeholder="Phone Number" path="phoneNumber" required="true" />
+		<form:input type="text" pattern="[6789][0-9]{9}" id="inputPhoneNumber" class="form-control"
+			placeholder="Phone Number" path="phoneNumber" required="true" title="Phone number with 6-9 and remaing 9 digit with 0-9"/>
 		<label for="inputPassword" class="sr-only">Password</label>
 		<form:input type="password" id="inputPassword" class="form-control"
 			placeholder="Password" path="password" required="true" />
