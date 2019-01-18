@@ -85,7 +85,7 @@ public class User {
 	/**
 	 * @return the isAdmin
 	 */
-	public Boolean getIsAdmin() {
+	public boolean getIsAdmin() {
 		return isAdmin;
 	}
 	/**
@@ -94,6 +94,14 @@ public class User {
 	 */
 	public void setIsAdmin(Boolean isAdmin) {
 		this.isAdmin = isAdmin;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof User) {
+			return ((User) obj).getUserId() == this.userId;
+		}
+		return false;
 	}
 
 }

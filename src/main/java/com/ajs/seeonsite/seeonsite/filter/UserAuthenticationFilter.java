@@ -61,7 +61,16 @@ public class UserAuthenticationFilter implements Filter {
 					LOG.info("Authentication failed");
 					res.sendRedirect("/login");
 				} else {
-					chain.doFilter(request, response);
+					if (pathMatcher.match("/admin/*", req.getServletPath())) {
+						if (exisitingUser.get().getIsAdmin()) {
+							chain.doFilter(request, response);
+						} else {
+							res.sendRedirect("/");
+						}
+					} else {
+						chain.doFilter(request, response);
+					}
+
 				}
 			}
 		}

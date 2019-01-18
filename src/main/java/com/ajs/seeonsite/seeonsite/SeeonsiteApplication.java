@@ -24,18 +24,16 @@ public class SeeonsiteApplication {
 	@Bean
 	public User getUser() {
 		User user = new User();
-		user.setEmail("asd@asd");
-		user.setPassword("123asd");
-		user.setUserName("asd");
+		user.setEmail("admin@admin");
+		user.setPassword("admin12345");
+		user.setUserName("Admin");
 		user.setIsAdmin(Boolean.TRUE);
 		return user;
 	}
 
 	@Bean
 	public void createUser() {
-		System.out.println("created");
 		userRepository.save(user);
-		System.out.println(userRepository.findByEmail(user.getEmail()));
 	}
 
 }
