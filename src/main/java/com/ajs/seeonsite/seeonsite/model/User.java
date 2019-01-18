@@ -18,6 +18,7 @@ public class User {
 	private String userName;
 	private String password;
 	private String email;
+	private String phoneNumber;
 
 	@OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
 	private Set<Home> homePosted;
@@ -66,6 +67,19 @@ public class User {
 	public String toString() {
 		return "User [userId=" + userId + ", userName=" + userName + ", email="
 				+ email + "]";
+	}
+	/**
+	 * @return the phoneNumber
+	 */
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	/**
+	 * @param phoneNumber
+	 *            the phoneNumber to set
+	 */
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 }

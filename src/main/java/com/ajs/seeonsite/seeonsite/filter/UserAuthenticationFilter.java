@@ -53,13 +53,13 @@ public class UserAuthenticationFilter implements Filter {
 			User user = (User) req.getSession().getAttribute("user");
 			if (user == null) {
 				LOG.info("Authentication failed");
-				res.sendRedirect("/");
+				res.sendRedirect("/login");
 			} else {
 				Optional<User> exisitingUser = userRepository
 						.findById(user.getUserId());
 				if (!exisitingUser.isPresent()) {
 					LOG.info("Authentication failed");
-					res.sendRedirect("/");
+					res.sendRedirect("/login");
 				} else {
 					chain.doFilter(request, response);
 				}

@@ -1,31 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
-</head>
-<body>
-<c:choose>
-  <c:when test="${not empty user}">
-  <b>Welcome </b> ${user.userName}<br>
-  <a href="logout">Logout</a>
-  </c:when>
-  <c:otherwise>
-  <a href="login">Login</a>
-  </c:otherwise>
-</c:choose>
-<table>
-	<c:forEach  items="${homes}" var="home">
-		<tr>
-	    <td>${home.name}</td>
-	    <td>${home.location}</td>
-	    <td>${home.owner.userName}</td>
-	    <td>${home.postedOn}</td>
-	  </tr>
-	</c:forEach>
-</table>
-</body>
-</html>
+<%@ include file="header.jsp"%>
+
+<div class="album py-5 bg-light">
+	<div class="container">
+		<div class="row">
+			<c:forEach items="${homes}" var="home">
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm">
+						<img class="card-img-top" src="images.png" class="img-fluid"
+							style="width: auto; height: 195px;">
+						<div class="card-body">
+							<p class="card-text"><b>Name: </b>${home.name}</p>
+							<p class="card-text"><b>Location: </b>${home.location}</p>
+							<div class="d-flex justify-content-between align-items-center">
+								<div class="btn-group">
+									<a href="/viewRoom/${home.id}" class="btn btn-sm btn-outline-secondary">View</a>
+									<c:if test="${home.owner.userId == user.userId}">
+									<a href="/updateRoom/${home.id}" class="btn btn-sm btn-outline-secondary">Edit</a>
+									</c:if>
+								</div>
+								<small class="text-muted">${home.postedOn}</small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
+</div>
+<%@ include file="footer.jsp"%>

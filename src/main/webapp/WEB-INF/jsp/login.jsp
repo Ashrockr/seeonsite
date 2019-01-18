@@ -1,19 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-<c:if test="${not empty error}">
-   <b>Error</b> ${error}
-</c:if>
+<%@ include file="header.jsp"%>
+<%@ include file="style.jsp"%>
+<div id="form">
+<form class="form-signin" method="POST" action="login">
+      <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="inputEmail" class="sr-only">Email address</label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email" required autofocus>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <a class="btn btn-lg btn-secondary btn-block" href="register">Register</a>
+    </form>
+</div>
 
-<form action="login" method="post">
-<input name="userName"/><input type="password" name="password"/><input type="submit">
-</form>
-</body>
-</html>
+<%@ include file="footer.jsp"%>

@@ -1,5 +1,6 @@
 package com.ajs.seeonsite.seeonsite.model;
 
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.Set;
 
@@ -25,12 +26,23 @@ public class Home {
 
 	private String location;
 
+	private String description;
+
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User owner;
 
 	@OneToMany(mappedBy = "home", cascade = CascadeType.ALL)
 	private Set<Image> images;
+
+	@CreatedDate
+	private Date postedOn;
+
+	private Boolean isApplied = Boolean.FALSE;
+
+	public Home() {
+
+	}
 
 	public Long getId() {
 		return id;
@@ -72,8 +84,15 @@ public class Home {
 		this.owner = owner;
 	}
 
-	public Date getPostedOn() {
+	public Date getPostedOnDate() {
 		return postedOn;
+	}
+
+	public String getPostedOn() {
+		if (postedOn == null) {
+			return null;
+		}
+		return DateFormat.getInstance().format(postedOn);
 	}
 
 	public void setPostedOn(Date postedOn) {
@@ -88,13 +107,12 @@ public class Home {
 		this.isApplied = isApplied;
 	}
 
-	@CreatedDate
-	private Date postedOn;
+	public String getDescription() {
+		return description;
+	}
 
-	private Boolean isApplied;
-
-	public Home() {
-
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }
