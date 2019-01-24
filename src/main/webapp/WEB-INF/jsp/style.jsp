@@ -38,25 +38,28 @@
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
 }
+
 .form-signin input[type="text"] {
 	margin-bottom: -1px;
 	border-bottom-right-radius: 0;
 	border-bottom-left-radius: 0;
-}.form-signin input[type="number"] {
+}
+
+.form-signin input[type="number"] {
 	margin-bottom: -1px;
 	border-bottom-right-radius: 0;
 	border-bottom-left-radius: 0;
 	border-top-right-radius: 0;
 	border-top-left-radius: 0;
 }
+
 .form-signin input[type="password"] {
 	margin-bottom: 10px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
 }
-.card-img-top {
-    width: 100%;
-    height: 15vw;
-    object-fit: cover;
+
+.img-height {
+	height: 45vh;
 }
 </style>

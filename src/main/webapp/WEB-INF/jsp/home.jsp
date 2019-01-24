@@ -1,5 +1,5 @@
 <%@ include file="header.jsp"%>
-
+<%@ include file="style.jsp"%>
 <div class="album py-5 bg-light">
 	<div class="container">
 		<div class="row">
@@ -8,21 +8,20 @@
 					<div class="card mb-4 shadow-sm">
 						<c:choose>
 							<c:when test="${home.image == null}">
-								<div class="carousel slide my-auto" data-ride="carousel">
-									<div class="carousel-inner">
-										<div class="carousel-item active }">
-											<img class="card-img-top" src="../images.png"
-												class="img-fluid">
+								<div class="carousel slide my-auto " data-ride="carousel">
+									<div class="carousel-inner img-height ">
+										<div class="carousel-item  active }">
+											<img class="d-block card-img-top" src="../images.png">
 										</div>
 									</div>
 								</div>
 							</c:when>
 							<c:otherwise>
-								<div class="carousel slide my-auto" data-ride="carousel">
-									<div class="carousel-inner">
+								<div class="carousel slide my-auto " data-ride="carousel">
+									<div class="carousel-inner ">
 										<c:forEach items="${home.images}" var="image" varStatus="loop">
-											<div class="carousel-item ${loop.count==1?'active':'' }">
-												<img class="d-block w-100 card-img-top"
+											<div class="carousel-item img-height ${loop.count==1?'active':'' } ">
+												<img class="d-block card-img-top"
 													src="data:image/jpeg;base64,${image.data}"
 													alt="${loop.count} slide">
 											</div>
