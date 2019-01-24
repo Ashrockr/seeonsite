@@ -18,7 +18,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 
-import com.ajs.seeonsite.seeonsite.ApplicationConstants;
+import com.ajs.seeonsite.seeonsite.ApplicationUtils;
 import com.ajs.seeonsite.seeonsite.model.User;
 import com.ajs.seeonsite.seeonsite.repository.UserRepository;
 
@@ -78,7 +78,7 @@ public class UserAuthenticationFilter implements Filter {
 
 	private boolean shouldNotFilter(HttpServletRequest request)
 			throws ServletException {
-		return ApplicationConstants.EXCLUDED_URL_PATTERN.stream().anyMatch(
+		return ApplicationUtils.EXCLUDED_URL_PATTERN.stream().anyMatch(
 				path -> pathMatcher.match(path, request.getServletPath()));
 	}
 

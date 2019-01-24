@@ -6,7 +6,6 @@
 	align-items: center;
 	padding-top: 40px;
 	padding-bottom: 40px;
-	background-color: #f5f5f5;
 }
 
 .form-signin {
@@ -54,5 +53,10 @@
 	margin-bottom: 10px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
+}
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
 }
 </style>

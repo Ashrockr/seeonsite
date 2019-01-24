@@ -2,6 +2,7 @@ package com.ajs.seeonsite.seeonsite.model;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -66,6 +67,16 @@ public class Home {
 
 	public Set<Image> getImages() {
 		return images;
+	}
+
+	public Image getImage() {
+		if (images != null || images.isEmpty()) {
+			Iterator<Image> iterator = images.iterator();
+			if (iterator.hasNext()) {
+				return iterator.next();
+			}
+		}
+		return null;
 	}
 
 	public void setImages(Set<Image> images) {

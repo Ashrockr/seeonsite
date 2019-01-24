@@ -1,12 +1,17 @@
 package com.ajs.seeonsite.seeonsite.model;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -14,6 +19,7 @@ import org.hibernate.annotations.OnDeleteAction;
 public class Image {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	private String name;
@@ -64,6 +70,11 @@ public class Image {
 
 	public byte[] getPic() {
 		return this.pic;
+	}
+
+	public String getData() throws UnsupportedEncodingException {
+		byte[] encodeBase64 = Base64.encodeBase64(pic);
+		return new String(encodeBase64, "UTF-8");
 	}
 
 	public void setPic(byte[] pic) {
